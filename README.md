@@ -46,7 +46,7 @@ GQA :You can upload the obtained result json file to [Eval AI](https://eval.ai/w
 
 
 ## Citation
-if LSAT is helpful for your research or you wish to refer the baseline results published here, we'd really appreciate it if you could cite this paper:
+if RRAF is helpful for your research or you wish to refer the baseline results published here, we'd really appreciate it if you could cite this paper:
 ```
 @article{shen2024relational,
   title={Relational reasoning and adaptive fusion for visual question answering},
