@@ -42,3 +42,18 @@ VQA 2.0: You can upload the obtained result json file to [Eval AI](https://eval.
 
 
 GQA :You can upload the obtained result json file to [Eval AI](https://eval.ai/web/challenges/challenge-page/225/overview) to evaluate the scores on *test-dev* and *test-std* splits.
+
+
+
+## Citation
+if LSAT is helpful for your research or you wish to refer the baseline results published here, we'd really appreciate it if you could cite this paper:
+```
+@article{shen2024relational,
+  title={Relational reasoning and adaptive fusion for visual question answering},
+  author={Shen, Xiang and Han, Dezhi and Zong, Liang and Guo, Zihan and Hua, Jie},
+  journal={Applied Intelligence},
+  pages={1--19},
+  year={2024},
+  publisher={Springer}
+}
+```
