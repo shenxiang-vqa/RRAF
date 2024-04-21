@@ -1,0 +1,678 @@
+{ BATCH_SIZE        }->64
+{ BBOXFEAT_EMB_SIZE }->2048
+{ BBOX_NORMALIZE    }->True
+{ CACHE_PATH        }->./results/cache
+{ CKPTS_PATH        }->./ckpts
+{ CKPT_EPOCH        }->0
+{ CKPT_PATH         }->None
+{ CKPT_VERSION      }->7341698
+{ DATASET           }->gqa
+{ DATA_PATH         }->{'vqa': '/home/shenxiang/sda/Datasets/vqa', 'gqa': '/home/shenxiang/sda/Datasets/gqa', 'clevr': '/home/shenxiang/sda/Datasets/clevr'}
+{ DATA_ROOT         }->/home/shenxiang/sda/Datasets
+{ DEVICES           }->[0]
+{ DROPOUT_R         }->0.1
+{ EVAL_BATCH_SIZE   }->32
+{ EVAL_EVERY_EPOCH  }->True
+{ FEATS_PATH        }->{'vqa': {'train': '/home/shenxiang/sda/Datasets/vqa/feats/train2014', 'val': '/home/shenxiang/sda/Datasets/vqa/feats/val2014', 'test': '/home/shenxiang/sda/Datasets/vqa/feats/test2015'}, 'gqa': {'default-frcn': '/home/shenxiang/sda/Datasets/gqa/feats/gqa-frcn', 'default-grid': '/home/shenxiang/sda/Datasets/gqa/feats/gqa-grid'}, 'clevr': {'train': '/home/shenxiang/sda/Datasets/clevr/feats/train', 'val': '/home/shenxiang/sda/Datasets/clevr/feats/val', 'test': '/home/shenxiang/sda/Datasets/clevr/feats/test'}}
+{ FEAT_SIZE         }->{'vqa': {'FRCN_FEAT_SIZE': (100, 2048), 'BBOX_FEAT_SIZE': (100, 5)}, 'gqa': {'FRCN_FEAT_SIZE': (100, 2048), 'GRID_FEAT_SIZE': (49, 2048), 'BBOX_FEAT_SIZE': (100, 5)}, 'clevr': {'GRID_FEAT_SIZE': (196, 1024)}}
+{ FF_SIZE           }->2048
+{ FLAT_GLIMPSES     }->1
+{ FLAT_MLP_SIZE     }->512
+{ FLAT_OUT_SIZE     }->1024
+{ GPU               }->0
+{ GRAD_ACCU_STEPS   }->1
+{ GRAD_NORM_CLIP    }->-1
+{ HIDDEN_SIZE       }->512
+{ LAYER             }->6
+{ LOG_PATH          }->./results/log
+{ LOSS_FUNC         }->ce
+{ LOSS_FUNC_NAME_DICT }->{'ce': 'CrossEntropyLoss', 'bce': 'BCEWithLogitsLoss', 'kld': 'KLDivLoss', 'mse': 'MSELoss'}
+{ LOSS_FUNC_NONLINEAR }->{'ce': [None, 'flat'], 'bce': [None, None], 'kld': ['log_softmax', None], 'mse': [None, None]}
+{ LOSS_REDUCTION    }->sum
+{ LR_BASE           }->0.0001
+{ LR_DECAY_LIST     }->[8, 10]
+{ LR_DECAY_R        }->0.2
+{ MAX_EPOCH         }->11
+{ MODEL             }->mcan_small
+{ MODEL_USE         }->mcan
+{ MULTI_HEAD        }->8
+{ NUM_WORKERS       }->8
+{ N_GPU             }->1
+{ OPT               }->Adam
+{ OPT_PARAMS        }->{'betas': (0.9, 0.98), 'eps': 1e-09, 'weight_decay': 0, 'amsgrad': False}
+{ PIN_MEM           }->True
+{ PRED_PATH         }->./results/pred
+{ RAW_PATH          }->{'vqa': {'train': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_train2014_questions.json', 'train-anno': '/home/shenxiang/sda/Datasets/vqa/raw/v2_mscoco_train2014_annotations.json', 'val': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_val2014_questions.json', 'val-anno': '/home/shenxiang/sda/Datasets/vqa/raw/v2_mscoco_val2014_annotations.json', 'vg': '/home/shenxiang/sda/Datasets/vqa/raw/VG_questions.json', 'vg-anno': '/home/shenxiang/sda/Datasets/vqa/raw/VG_annotations.json', 'test': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_test2015_questions.json'}, 'gqa': {'train': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/train_balanced_questions.json', 'val': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/val_balanced_questions.json', 'testdev': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/testdev_balanced_questions.json', 'test': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/submission_all_questions.json', 'val_all': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/val_all_questions.json', 'testdev_all': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/testdev_all_questions.json', 'train_choices': '/home/shenxiang/sda/Datasets/gqa/raw/eval/train_choices', 'val_choices': '/home/shenxiang/sda/Datasets/gqa/raw/eval/val_choices.json'}, 'clevr': {'train': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_train_questions.json', 'val': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_val_questions.json', 'test': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_test_questions.json'}}
+{ RESULT_PATH       }->./results/result_test
+{ RESUME            }->False
+{ RUN_MODE          }->train
+{ SEED              }->7341698
+{ SPLIT             }->{'train': 'train+val', 'val': 'testdev', 'test': 'test'}
+{ SPLITS            }->{'vqa': {'train': '', 'val': 'val', 'test': 'test'}, 'gqa': {'train': 'train+val', 'val': 'testdev', 'test': 'test'}, 'clevr': {'train': '', 'val': 'val', 'test': 'test'}}
+{ SUB_BATCH_SIZE    }->64
+{ TASK_LOSS_CHECK   }->{'vqa': ['bce', 'kld'], 'gqa': ['ce'], 'clevr': ['ce']}
+{ TEST_SAVE_PRED    }->False
+{ TRAIN_SPLIT       }->train+val
+{ USE_AUX_FEAT      }->True
+{ USE_BBOX_FEAT     }->True
+{ USE_GLOVE         }->True
+{ VERBOSE           }->True
+{ VERSION           }->7341698
+{ WARMUP_EPOCH      }->2
+{ WORD_EMBED_SIZE   }->300
+=====================================
+nowTime: 2022-12-22 15:39:14
+Epoch: 1, Loss: 1.7279224370061892, Lr: 6.666666666666667e-05
+Elapsed time: 4410, Speed(s/batch): 0.2625659479927977
+
+Binary: 57.84%
+Open: 33.96%
+Accuracy: 44.92%
+Distribution: 3.04 (lower is better)
+Accuracy / structural type:
+  choose: 57.48% (1129 questions)
+  compare: 47.71% (589 questions)
+  logical: 57.02% (1803 questions)
+  query: 33.96% (6805 questions)
+  verify: 61.32% (2252 questions)
+Accuracy / semantic type:
+  attr: 48.11% (5186 questions)
+  cat: 39.16% (1149 questions)
+  global: 55.41% (157 questions)
+  obj: 65.94% (778 questions)
+  rel: 39.66% (5308 questions)
+Accuracy / steps number:
+  1: 59.49% (237 questions)
+  2: 41.39% (6395 questions)
+  3: 45.94% (4266 questions)
+  4: 47.79% (793 questions)
+  5: 57.30% (822 questions)
+  6: 70.73% (41 questions)
+  7: 95.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 28.48% (151 questions)
+  4: 44.60% (630 questions)
+  5: 34.57% (1290 questions)
+  6: 39.87% (2074 questions)
+  7: 44.21% (1642 questions)
+  8: 46.50% (1185 questions)
+  9: 49.65% (1281 questions)
+  10: 49.88% (1249 questions)
+  11: 48.09% (994 questions)
+  12: 49.22% (638 questions)
+  13: 48.27% (462 questions)
+  14: 50.43% (345 questions)
+  15: 55.70% (237 questions)
+  16: 51.28% (117 questions)
+  17: 45.74% (94 questions)
+  18: 50.00% (76 questions)
+  19: 48.84% (43 questions)
+  20: 43.75% (32 questions)
+  21: 47.37% (19 questions)
+  22: 50.00% (12 questions)
+  23: 50.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 16:53:10
+Epoch: 2, Loss: 1.4126478114916086, Lr: 0.0001
+Elapsed time: 3400, Speed(s/batch): 0.20248094965486646
+
+Binary: 63.54%
+Open: 37.09%
+Accuracy: 49.23%
+Distribution: 2.49 (lower is better)
+Accuracy / structural type:
+  choose: 64.13% (1129 questions)
+  compare: 57.89% (589 questions)
+  logical: 61.79% (1803 questions)
+  query: 37.09% (6805 questions)
+  verify: 66.12% (2252 questions)
+Accuracy / semantic type:
+  attr: 52.02% (5186 questions)
+  cat: 43.43% (1149 questions)
+  global: 50.96% (157 questions)
+  obj: 78.15% (778 questions)
+  rel: 43.46% (5308 questions)
+Accuracy / steps number:
+  1: 69.20% (237 questions)
+  2: 44.63% (6395 questions)
+  3: 51.76% (4266 questions)
+  4: 48.05% (793 questions)
+  5: 64.48% (822 questions)
+  6: 78.05% (41 questions)
+  7: 95.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 32.45% (151 questions)
+  4: 43.81% (630 questions)
+  5: 36.28% (1290 questions)
+  6: 46.48% (2074 questions)
+  7: 48.17% (1642 questions)
+  8: 50.55% (1185 questions)
+  9: 55.11% (1281 questions)
+  10: 55.48% (1249 questions)
+  11: 50.91% (994 questions)
+  12: 56.74% (638 questions)
+  13: 51.73% (462 questions)
+  14: 56.81% (345 questions)
+  15: 52.74% (237 questions)
+  16: 52.14% (117 questions)
+  17: 55.32% (94 questions)
+  18: 50.00% (76 questions)
+  19: 72.09% (43 questions)
+  20: 56.25% (32 questions)
+  21: 52.63% (19 questions)
+  22: 33.33% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 17:50:16
+Epoch: 3, Loss: 1.273295123787921, Lr: 0.0001
+Elapsed time: 3206, Speed(s/batch): 0.19089003177335304
+
+Binary: 69.53%
+Open: 38.93%
+Accuracy: 52.97%
+Distribution: 2.41 (lower is better)
+Accuracy / structural type:
+  choose: 69.44% (1129 questions)
+  compare: 54.16% (589 questions)
+  logical: 68.55% (1803 questions)
+  query: 38.93% (6805 questions)
+  verify: 74.38% (2252 questions)
+Accuracy / semantic type:
+  attr: 57.96% (5186 questions)
+  cat: 45.87% (1149 questions)
+  global: 55.41% (157 questions)
+  obj: 80.59% (778 questions)
+  rel: 45.52% (5308 questions)
+Accuracy / steps number:
+  1: 70.46% (237 questions)
+  2: 48.08% (6395 questions)
+  3: 54.83% (4266 questions)
+  4: 59.52% (793 questions)
+  5: 67.40% (822 questions)
+  6: 85.37% (41 questions)
+  7: 90.00% (20 questions)
+  8: 66.67% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 31.79% (151 questions)
+  4: 48.41% (630 questions)
+  5: 40.08% (1290 questions)
+  6: 50.68% (2074 questions)
+  7: 52.13% (1642 questions)
+  8: 55.19% (1185 questions)
+  9: 59.80% (1281 questions)
+  10: 56.93% (1249 questions)
+  11: 55.23% (994 questions)
+  12: 56.43% (638 questions)
+  13: 52.60% (462 questions)
+  14: 59.42% (345 questions)
+  15: 61.18% (237 questions)
+  16: 61.54% (117 questions)
+  17: 60.64% (94 questions)
+  18: 67.11% (76 questions)
+  19: 76.74% (43 questions)
+  20: 56.25% (32 questions)
+  21: 57.89% (19 questions)
+  22: 58.33% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 18:44:05
+Epoch: 4, Loss: 1.157283265625384, Lr: 0.0001
+Elapsed time: 3177, Speed(s/batch): 0.18917660164986375
+
+Binary: 71.02%
+Open: 40.65%
+Accuracy: 54.59%
+Distribution: 1.63 (lower is better)
+Accuracy / structural type:
+  choose: 69.44% (1129 questions)
+  compare: 55.69% (589 questions)
+  logical: 69.66% (1803 questions)
+  query: 40.65% (6805 questions)
+  verify: 76.91% (2252 questions)
+Accuracy / semantic type:
+  attr: 58.97% (5186 questions)
+  cat: 44.82% (1149 questions)
+  global: 59.87% (157 questions)
+  obj: 84.70% (778 questions)
+  rel: 47.85% (5308 questions)
+Accuracy / steps number:
+  1: 69.62% (237 questions)
+  2: 49.55% (6395 questions)
+  3: 57.20% (4266 questions)
+  4: 59.52% (793 questions)
+  5: 69.22% (822 questions)
+  6: 70.73% (41 questions)
+  7: 95.00% (20 questions)
+  8: 66.67% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 32.45% (151 questions)
+  4: 50.00% (630 questions)
+  5: 42.95% (1290 questions)
+  6: 50.87% (2074 questions)
+  7: 54.87% (1642 questions)
+  8: 56.37% (1185 questions)
+  9: 60.66% (1281 questions)
+  10: 60.37% (1249 questions)
+  11: 56.34% (994 questions)
+  12: 58.46% (638 questions)
+  13: 54.11% (462 questions)
+  14: 62.61% (345 questions)
+  15: 64.56% (237 questions)
+  16: 60.68% (117 questions)
+  17: 56.38% (94 questions)
+  18: 61.84% (76 questions)
+  19: 69.77% (43 questions)
+  20: 53.12% (32 questions)
+  21: 63.16% (19 questions)
+  22: 50.00% (12 questions)
+  23: 50.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 19:37:22
+Epoch: 5, Loss: 1.0731436179743687, Lr: 0.0001
+Elapsed time: 3206, Speed(s/batch): 0.1909015183506707
+
+Binary: 71.16%
+Open: 38.21%
+Accuracy: 53.33%
+Distribution: 2.90 (lower is better)
+Accuracy / structural type:
+  choose: 71.04% (1129 questions)
+  compare: 58.57% (589 questions)
+  logical: 69.94% (1803 questions)
+  query: 38.21% (6805 questions)
+  verify: 75.49% (2252 questions)
+Accuracy / semantic type:
+  attr: 58.77% (5186 questions)
+  cat: 42.47% (1149 questions)
+  global: 50.96% (157 questions)
+  obj: 82.13% (778 questions)
+  rel: 46.21% (5308 questions)
+Accuracy / steps number:
+  1: 64.98% (237 questions)
+  2: 47.54% (6395 questions)
+  3: 56.40% (4266 questions)
+  4: 61.79% (793 questions)
+  5: 68.49% (822 questions)
+  6: 78.05% (41 questions)
+  7: 95.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 29.80% (151 questions)
+  4: 46.19% (630 questions)
+  5: 38.99% (1290 questions)
+  6: 49.47% (2074 questions)
+  7: 51.71% (1642 questions)
+  8: 55.27% (1185 questions)
+  9: 59.41% (1281 questions)
+  10: 60.13% (1249 questions)
+  11: 56.04% (994 questions)
+  12: 59.40% (638 questions)
+  13: 57.36% (462 questions)
+  14: 63.48% (345 questions)
+  15: 66.67% (237 questions)
+  16: 64.96% (117 questions)
+  17: 55.32% (94 questions)
+  18: 63.16% (76 questions)
+  19: 69.77% (43 questions)
+  20: 59.38% (32 questions)
+  21: 63.16% (19 questions)
+  22: 66.67% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 20:31:10
+Epoch: 6, Loss: 1.0037476066976794, Lr: 0.0001
+Elapsed time: 3223, Speed(s/batch): 0.19189981897265096
+
+Binary: 71.89%
+Open: 39.09%
+Accuracy: 54.14%
+Distribution: 1.82 (lower is better)
+Accuracy / structural type:
+  choose: 72.28% (1129 questions)
+  compare: 62.31% (589 questions)
+  logical: 69.44% (1803 questions)
+  query: 39.09% (6805 questions)
+  verify: 76.15% (2252 questions)
+Accuracy / semantic type:
+  attr: 58.85% (5186 questions)
+  cat: 44.65% (1149 questions)
+  global: 55.41% (157 questions)
+  obj: 85.48% (778 questions)
+  rel: 46.97% (5308 questions)
+Accuracy / steps number:
+  1: 70.04% (237 questions)
+  2: 48.38% (6395 questions)
+  3: 57.97% (4266 questions)
+  4: 56.37% (793 questions)
+  5: 69.71% (822 questions)
+  6: 80.49% (41 questions)
+  7: 100.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 29.14% (151 questions)
+  4: 47.78% (630 questions)
+  5: 39.53% (1290 questions)
+  6: 49.52% (2074 questions)
+  7: 54.57% (1642 questions)
+  8: 55.36% (1185 questions)
+  9: 61.20% (1281 questions)
+  10: 60.37% (1249 questions)
+  11: 56.04% (994 questions)
+  12: 61.60% (638 questions)
+  13: 58.44% (462 questions)
+  14: 62.61% (345 questions)
+  15: 64.14% (237 questions)
+  16: 62.39% (117 questions)
+  17: 60.64% (94 questions)
+  18: 64.47% (76 questions)
+  19: 65.12% (43 questions)
+  20: 68.75% (32 questions)
+  21: 52.63% (19 questions)
+  22: 58.33% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 21:25:09
+Epoch: 7, Loss: 0.9452922663004919, Lr: 0.0001
+Elapsed time: 3181, Speed(s/batch): 0.18942918369218717
+
+Binary: 72.01%
+Open: 39.63%
+Accuracy: 54.49%
+Distribution: 2.57 (lower is better)
+Accuracy / structural type:
+  choose: 71.92% (1129 questions)
+  compare: 62.48% (589 questions)
+  logical: 70.11% (1803 questions)
+  query: 39.63% (6805 questions)
+  verify: 76.07% (2252 questions)
+Accuracy / semantic type:
+  attr: 60.12% (5186 questions)
+  cat: 44.65% (1149 questions)
+  global: 55.41% (157 questions)
+  obj: 82.90% (778 questions)
+  rel: 46.93% (5308 questions)
+Accuracy / steps number:
+  1: 68.35% (237 questions)
+  2: 48.49% (6395 questions)
+  3: 57.99% (4266 questions)
+  4: 60.40% (793 questions)
+  5: 71.17% (822 questions)
+  6: 73.17% (41 questions)
+  7: 95.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 29.80% (151 questions)
+  4: 47.46% (630 questions)
+  5: 41.55% (1290 questions)
+  6: 49.71% (2074 questions)
+  7: 52.68% (1642 questions)
+  8: 56.71% (1185 questions)
+  9: 61.83% (1281 questions)
+  10: 61.65% (1249 questions)
+  11: 56.34% (994 questions)
+  12: 60.82% (638 questions)
+  13: 56.93% (462 questions)
+  14: 62.61% (345 questions)
+  15: 65.40% (237 questions)
+  16: 66.67% (117 questions)
+  17: 56.38% (94 questions)
+  18: 65.79% (76 questions)
+  19: 81.40% (43 questions)
+  20: 68.75% (32 questions)
+  21: 63.16% (19 questions)
+  22: 58.33% (12 questions)
+  23: 50.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 22:18:26
+Epoch: 8, Loss: 0.8939033648840318, Lr: 0.0001
+Elapsed time: 4054, Speed(s/batch): 0.24138486804096834
+
+Binary: 73.22%
+Open: 38.65%
+Accuracy: 54.52%
+Distribution: 1.71 (lower is better)
+Accuracy / structural type:
+  choose: 74.05% (1129 questions)
+  compare: 59.76% (589 questions)
+  logical: 72.21% (1803 questions)
+  query: 38.65% (6805 questions)
+  verify: 77.13% (2252 questions)
+Accuracy / semantic type:
+  attr: 61.40% (5186 questions)
+  cat: 42.65% (1149 questions)
+  global: 52.23% (157 questions)
+  obj: 83.55% (778 questions)
+  rel: 46.18% (5308 questions)
+Accuracy / steps number:
+  1: 70.04% (237 questions)
+  2: 47.91% (6395 questions)
+  3: 58.25% (4266 questions)
+  4: 62.55% (793 questions)
+  5: 71.41% (822 questions)
+  6: 85.37% (41 questions)
+  7: 100.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 30.46% (151 questions)
+  4: 47.30% (630 questions)
+  5: 41.86% (1290 questions)
+  6: 50.24% (2074 questions)
+  7: 52.92% (1642 questions)
+  8: 56.37% (1185 questions)
+  9: 60.27% (1281 questions)
+  10: 61.09% (1249 questions)
+  11: 56.44% (994 questions)
+  12: 62.70% (638 questions)
+  13: 58.23% (462 questions)
+  14: 63.48% (345 questions)
+  15: 65.82% (237 questions)
+  16: 61.54% (117 questions)
+  17: 57.45% (94 questions)
+  18: 68.42% (76 questions)
+  19: 81.40% (43 questions)
+  20: 56.25% (32 questions)
+  21: 63.16% (19 questions)
+  22: 58.33% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-22 23:26:29
+Epoch: 9, Loss: 0.6455344581920872, Lr: 2e-05
+Elapsed time: 5461, Speed(s/batch): 0.32517410447467476
+
+Binary: 75.75%
+Open: 40.24%
+Accuracy: 56.54%
+Distribution: 1.87 (lower is better)
+Accuracy / structural type:
+  choose: 76.09% (1129 questions)
+  compare: 67.06% (589 questions)
+  logical: 74.60% (1803 questions)
+  query: 40.24% (6805 questions)
+  verify: 78.77% (2252 questions)
+Accuracy / semantic type:
+  attr: 63.11% (5186 questions)
+  cat: 43.78% (1149 questions)
+  global: 55.41% (157 questions)
+  obj: 85.60% (778 questions)
+  rel: 48.64% (5308 questions)
+Accuracy / steps number:
+  1: 70.89% (237 questions)
+  2: 49.85% (6395 questions)
+  3: 60.45% (4266 questions)
+  4: 63.81% (793 questions)
+  5: 74.09% (822 questions)
+  6: 90.24% (41 questions)
+  7: 100.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 28.48% (151 questions)
+  4: 49.21% (630 questions)
+  5: 43.49% (1290 questions)
+  6: 52.27% (2074 questions)
+  7: 55.60% (1642 questions)
+  8: 57.89% (1185 questions)
+  9: 61.67% (1281 questions)
+  10: 64.05% (1249 questions)
+  11: 57.95% (994 questions)
+  12: 65.36% (638 questions)
+  13: 60.61% (462 questions)
+  14: 64.35% (345 questions)
+  15: 65.82% (237 questions)
+  16: 66.67% (117 questions)
+  17: 69.15% (94 questions)
+  18: 67.11% (76 questions)
+  19: 76.74% (43 questions)
+  20: 59.38% (32 questions)
+  21: 73.68% (19 questions)
+  22: 75.00% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-23 00:58:06
+Epoch: 10, Loss: 0.5535611514990557, Lr: 2e-05
+Elapsed time: 3208, Speed(s/batch): 0.19099969277923576
+
+Binary: 75.94%
+Open: 39.72%
+Accuracy: 56.34%
+Distribution: 1.77 (lower is better)
+Accuracy / structural type:
+  choose: 76.62% (1129 questions)
+  compare: 64.69% (589 questions)
+  logical: 74.93% (1803 questions)
+  query: 39.72% (6805 questions)
+  verify: 79.35% (2252 questions)
+Accuracy / semantic type:
+  attr: 63.13% (5186 questions)
+  cat: 44.73% (1149 questions)
+  global: 54.14% (157 questions)
+  obj: 86.50% (778 questions)
+  rel: 47.87% (5308 questions)
+Accuracy / steps number:
+  1: 71.73% (237 questions)
+  2: 49.55% (6395 questions)
+  3: 60.22% (4266 questions)
+  4: 62.67% (793 questions)
+  5: 75.67% (822 questions)
+  6: 87.80% (41 questions)
+  7: 100.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 30.46% (151 questions)
+  4: 48.41% (630 questions)
+  5: 42.09% (1290 questions)
+  6: 51.78% (2074 questions)
+  7: 55.91% (1642 questions)
+  8: 58.14% (1185 questions)
+  9: 62.30% (1281 questions)
+  10: 63.81% (1249 questions)
+  11: 58.55% (994 questions)
+  12: 64.11% (638 questions)
+  13: 59.09% (462 questions)
+  14: 65.51% (345 questions)
+  15: 65.82% (237 questions)
+  16: 64.96% (117 questions)
+  17: 69.15% (94 questions)
+  18: 67.11% (76 questions)
+  19: 76.74% (43 questions)
+  20: 56.25% (32 questions)
+  21: 78.95% (19 questions)
+  22: 75.00% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+
+=====================================
+nowTime: 2022-12-23 01:51:49
+Epoch: 11, Loss: 0.46142514957833053, Lr: 4.000000000000001e-06
+Elapsed time: 3188, Speed(s/batch): 0.18981171094340693
+
+Binary: 76.29%
+Open: 40.07%
+Accuracy: 56.69%
+Distribution: 1.74 (lower is better)
+Accuracy / structural type:
+  choose: 76.97% (1129 questions)
+  compare: 66.04% (589 questions)
+  logical: 75.10% (1803 questions)
+  query: 40.07% (6805 questions)
+  verify: 79.57% (2252 questions)
+Accuracy / semantic type:
+  attr: 63.81% (5186 questions)
+  cat: 43.34% (1149 questions)
+  global: 56.69% (157 questions)
+  obj: 87.02% (778 questions)
+  rel: 48.19% (5308 questions)
+Accuracy / steps number:
+  1: 69.62% (237 questions)
+  2: 50.01% (6395 questions)
+  3: 60.60% (4266 questions)
+  4: 63.18% (793 questions)
+  5: 75.67% (822 questions)
+  6: 87.80% (41 questions)
+  7: 100.00% (20 questions)
+  8: 100.00% (3 questions)
+  9: 100.00% (1 questions)
+Accuracy / words number:
+  3: 31.13% (151 questions)
+  4: 49.21% (630 questions)
+  5: 43.10% (1290 questions)
+  6: 52.27% (2074 questions)
+  7: 55.48% (1642 questions)
+  8: 59.07% (1185 questions)
+  9: 62.92% (1281 questions)
+  10: 64.77% (1249 questions)
+  11: 57.65% (994 questions)
+  12: 65.20% (638 questions)
+  13: 58.87% (462 questions)
+  14: 64.35% (345 questions)
+  15: 66.24% (237 questions)
+  16: 64.96% (117 questions)
+  17: 67.02% (94 questions)
+  18: 65.79% (76 questions)
+  19: 81.40% (43 questions)
+  20: 56.25% (32 questions)
+  21: 68.42% (19 questions)
+  22: 75.00% (12 questions)
+  23: 25.00% (4 questions)
+  24: 100.00% (2 questions)
+  25: 100.00% (1 questions)
+

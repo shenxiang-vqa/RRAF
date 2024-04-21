@@ -1,0 +1,127 @@
+{ BATCH_SIZE        }->64
+{ BBOXFEAT_EMB_SIZE }->2048
+{ BBOX_NORMALIZE    }->True
+{ CACHE_PATH        }->./results/cache
+{ CKPTS_PATH        }->./ckpts
+{ CKPT_EPOCH        }->0
+{ CKPT_PATH         }->None
+{ CKPT_VERSION      }->3080445
+{ DATASET           }->vqa
+{ DATA_PATH         }->{'vqa': '/home/shenxiang/sda/Datasets/vqa', 'gqa': '/home/shenxiang/sda/Datasets/gqa', 'clevr': '/home/shenxiang/sda/Datasets/clevr'}
+{ DATA_ROOT         }->/home/shenxiang/sda/Datasets
+{ DEVICES           }->[0]
+{ DROPOUT_R         }->0.1
+{ EVAL_BATCH_SIZE   }->32
+{ EVAL_EVERY_EPOCH  }->False
+{ FEATS_PATH        }->{'vqa': {'train': '/home/shenxiang/sda/Datasets/vqa/feats/train2014', 'val': '/home/shenxiang/sda/Datasets/vqa/feats/val2014', 'test': '/home/shenxiang/sda/Datasets/vqa/feats/test2015'}, 'gqa': {'default-frcn': '/home/shenxiang/sda/Datasets/gqa/feats/gqa-frcn', 'default-grid': '/home/shenxiang/sda/Datasets/gqa/feats/gqa-grid'}, 'clevr': {'train': '/home/shenxiang/sda/Datasets/clevr/feats/train', 'val': '/home/shenxiang/sda/Datasets/clevr/feats/val', 'test': '/home/shenxiang/sda/Datasets/clevr/feats/test'}}
+{ FEAT_SIZE         }->{'vqa': {'FRCN_FEAT_SIZE': (100, 2048), 'BBOX_FEAT_SIZE': (100, 5)}, 'gqa': {'FRCN_FEAT_SIZE': (100, 2048), 'GRID_FEAT_SIZE': (49, 2048), 'BBOX_FEAT_SIZE': (100, 5)}, 'clevr': {'GRID_FEAT_SIZE': (196, 1024)}}
+{ FF_SIZE           }->2048
+{ FLAT_GLIMPSES     }->1
+{ FLAT_MLP_SIZE     }->512
+{ FLAT_OUT_SIZE     }->1024
+{ GPU               }->1
+{ GRAD_ACCU_STEPS   }->1
+{ GRAD_NORM_CLIP    }->-1
+{ HIDDEN_SIZE       }->512
+{ LAYER             }->6
+{ LOG_PATH          }->./results/log
+{ LOSS_FUNC         }->bce
+{ LOSS_FUNC_NAME_DICT }->{'ce': 'CrossEntropyLoss', 'bce': 'BCEWithLogitsLoss', 'kld': 'KLDivLoss', 'mse': 'MSELoss'}
+{ LOSS_FUNC_NONLINEAR }->{'ce': [None, 'flat'], 'bce': [None, None], 'kld': ['log_softmax', None], 'mse': [None, None]}
+{ LOSS_REDUCTION    }->sum
+{ LR_BASE           }->0.0001
+{ LR_DECAY_LIST     }->[10, 12]
+{ LR_DECAY_R        }->0.2
+{ MAX_EPOCH         }->13
+{ MODEL             }->mcan_small
+{ MODEL_USE         }->mcan
+{ MULTI_HEAD        }->8
+{ NUM_WORKERS       }->8
+{ N_GPU             }->1
+{ OPT               }->Adam
+{ OPT_PARAMS        }->{'betas': (0.9, 0.98), 'eps': 1e-09, 'weight_decay': 0, 'amsgrad': False}
+{ PIN_MEM           }->True
+{ PRED_PATH         }->./results/pred
+{ RAW_PATH          }->{'vqa': {'train': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_train2014_questions.json', 'train-anno': '/home/shenxiang/sda/Datasets/vqa/raw/v2_mscoco_train2014_annotations.json', 'val': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_val2014_questions.json', 'val-anno': '/home/shenxiang/sda/Datasets/vqa/raw/v2_mscoco_val2014_annotations.json', 'vg': '/home/shenxiang/sda/Datasets/vqa/raw/VG_questions.json', 'vg-anno': '/home/shenxiang/sda/Datasets/vqa/raw/VG_annotations.json', 'test': '/home/shenxiang/sda/Datasets/vqa/raw/v2_OpenEnded_mscoco_test2015_questions.json'}, 'gqa': {'train': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/train_balanced_questions.json', 'val': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/val_balanced_questions.json', 'testdev': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/testdev_balanced_questions.json', 'test': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/submission_all_questions.json', 'val_all': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/val_all_questions.json', 'testdev_all': '/home/shenxiang/sda/Datasets/gqa/raw/questions1.2/testdev_all_questions.json', 'train_choices': '/home/shenxiang/sda/Datasets/gqa/raw/eval/train_choices', 'val_choices': '/home/shenxiang/sda/Datasets/gqa/raw/eval/val_choices.json'}, 'clevr': {'train': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_train_questions.json', 'val': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_val_questions.json', 'test': '/home/shenxiang/sda/Datasets/clevr/raw/questions/CLEVR_test_questions.json'}}
+{ RESULT_PATH       }->./results/result_test
+{ RESUME            }->False
+{ RUN_MODE          }->train
+{ SEED              }->3080445
+{ SPLIT             }->{'train': 'train+val+vg', 'val': 'val', 'test': 'test'}
+{ SPLITS            }->{'vqa': {'train': 'train+val+vg', 'val': 'val', 'test': 'test'}, 'gqa': {'train': '', 'val': 'testdev', 'test': 'test'}, 'clevr': {'train': '', 'val': 'val', 'test': 'test'}}
+{ SUB_BATCH_SIZE    }->64
+{ TASK_LOSS_CHECK   }->{'vqa': ['bce', 'kld'], 'gqa': ['ce'], 'clevr': ['ce']}
+{ TEST_SAVE_PRED    }->False
+{ TRAIN_SPLIT       }->train+val+vg
+{ USE_AUX_FEAT      }->False
+{ USE_BBOX_FEAT     }->True
+{ USE_GLOVE         }->True
+{ VERBOSE           }->True
+{ VERSION           }->3080445
+{ WARMUP_EPOCH      }->3
+{ WORD_EMBED_SIZE   }->300
+=====================================
+nowTime: 2024-01-23 21:37:44
+Epoch: 1, Loss: 11.32152175202694, Lr: 2.5e-05
+Elapsed time: 2563, Speed(s/batch): 0.14270264343576813
+
+=====================================
+nowTime: 2024-01-23 22:20:29
+Epoch: 2, Loss: 3.4594180752674726, Lr: 5e-05
+Elapsed time: 2551, Speed(s/batch): 0.14204150275744562
+
+=====================================
+nowTime: 2024-01-23 23:03:01
+Epoch: 3, Loss: 3.2714752606627706, Lr: 7.500000000000001e-05
+Elapsed time: 2554, Speed(s/batch): 0.14220919849797478
+
+=====================================
+nowTime: 2024-01-23 23:45:37
+Epoch: 4, Loss: 3.186139029701512, Lr: 0.0001
+Elapsed time: 2549, Speed(s/batch): 0.14192598163053105
+
+=====================================
+nowTime: 2024-01-24 00:28:08
+Epoch: 5, Loss: 3.042001891438049, Lr: 0.0001
+Elapsed time: 2554, Speed(s/batch): 0.14216900969300095
+
+=====================================
+nowTime: 2024-01-24 01:10:43
+Epoch: 6, Loss: 2.936237983217952, Lr: 0.0001
+Elapsed time: 2497, Speed(s/batch): 0.13903705643529976
+
+=====================================
+nowTime: 2024-01-24 01:52:21
+Epoch: 7, Loss: 2.8560937724757696, Lr: 0.0001
+Elapsed time: 2521, Speed(s/batch): 0.14036999421065016
+
+=====================================
+nowTime: 2024-01-24 02:34:24
+Epoch: 8, Loss: 2.7865458516661907, Lr: 0.0001
+Elapsed time: 2618, Speed(s/batch): 0.1457246840696856
+
+=====================================
+nowTime: 2024-01-24 03:18:03
+Epoch: 9, Loss: 2.736487794887776, Lr: 0.0001
+Elapsed time: 2530, Speed(s/batch): 0.14083622808540291
+
+=====================================
+nowTime: 2024-01-24 04:00:14
+Epoch: 10, Loss: 2.6944770701525025, Lr: 0.0001
+Elapsed time: 2594, Speed(s/batch): 0.14438573960855572
+
+=====================================
+nowTime: 2024-01-24 04:43:29
+Epoch: 11, Loss: 2.294834782613805, Lr: 2e-05
+Elapsed time: 2569, Speed(s/batch): 0.14304209750783903
+
+=====================================
+nowTime: 2024-01-24 05:26:20
+Epoch: 12, Loss: 2.1576396565684792, Lr: 2e-05
+Elapsed time: 2525, Speed(s/batch): 0.14057172850963734
+
+=====================================
+nowTime: 2024-01-24 06:08:26
+Epoch: 13, Loss: 2.006252285202438, Lr: 4.000000000000001e-06
+Elapsed time: 2516, Speed(s/batch): 0.14007051864525502
+
